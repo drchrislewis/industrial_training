@@ -33,6 +33,7 @@ rosbuild_gensrv()
 
 
 rosbuild_add_executable(target_recognition_service src/services/target_recognition_service.cpp)
+rosbuild_add_executable(pick_location_service src/services/pick_location_service.cpp)
 
 rosbuild_add_executable(pick_and_place_node 
 	src/nodes/pick_and_place_node.cpp
@@ -42,7 +43,7 @@ rosbuild_add_executable(pick_and_place_node
 	src/tasks/set_attached_object.cpp
 	src/tasks/detect_box_pick.cpp
 	src/tasks/create_pick_moves.cpp
-    src/tasks/create_place_moves.cpp
+        src/tasks/create_place_moves.cpp
 	src/tasks/pickup_box.cpp
 	src/tasks/place_box.cpp	
 	src/tasks/create_motion_plan.cpp

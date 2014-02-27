@@ -32,3 +32,4 @@ rosbuild_add_executable(simple_grasp_action_server src/nodes/open_close_grasp_ac
 rosbuild_add_executable(suction_gripper_action_server src/nodes/suction_gripper_action_server.cpp)
 rosbuild_add_executable(digital_output_server src/nodes/digital_output_update_server.cpp)
 rosbuild_add_executable(simulated_grasp_action_server src/nodes/simulated_grasp_action_server.cpp)
+rosbuild_add_executable(versaball_action_server src/nodes/versaball_action_server.cpp)
