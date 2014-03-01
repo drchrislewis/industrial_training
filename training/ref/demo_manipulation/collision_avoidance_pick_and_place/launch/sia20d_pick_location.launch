@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- pick location node -->
+  <node pkg="collision_avoidance_pick_and_place" type="pick_location_service" name="pick_location_service" output="screen">
+	<rosparam command="load" file="$(find collision_avoidance_pick_and_place)/config/sia20d/pick_location_parameters.yaml"/>
+  </node>
+
+</launch>

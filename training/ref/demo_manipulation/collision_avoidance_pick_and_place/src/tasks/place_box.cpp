@@ -32,6 +32,7 @@ void collision_avoidance_pick_and_place::PickAndPlace::place_box(std::vector<geo
   for(unsigned int i = 0; i < place_poses.size(); i++)
   {
   	// create motion plan
+    ros::Duration(2.0f).sleep();
     move_group_interface::MoveGroup::Plan plan;
     success = create_motion_plan(place_poses[i],plan) && move_group_ptr->execute(plan);
 

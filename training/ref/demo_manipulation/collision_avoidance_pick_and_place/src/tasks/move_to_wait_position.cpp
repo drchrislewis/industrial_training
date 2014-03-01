@@ -30,6 +30,7 @@ void collision_avoidance_pick_and_place::PickAndPlace::move_to_wait_position()
 
   // move the robot
   /* Fill Code: [ use the 'move' method in the 'move_group' object and save the result in the 'success' variable] */
+  ros::Duration(2.0f).sleep();
   success = move_group_ptr->move();
   if(success)
   {

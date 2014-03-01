@@ -28,19 +28,20 @@ void PickAndPlace::set_attached_object(bool attach, const geometry_msgs::Pose &p
 	collision_detection::AllowedCollisionMatrix &acm = planning_scene.getAllowedCollisionMatrixNonConst();
 
 	// modifying allowed collision matrix
-	acm.setDefaultEntry(cfg.ATTACHED_OBJECT_LINK_NAME,!attach);
+	//acm.setDefaultEntry(cfg.ATTACHED_OBJECT_LINK_NAME,!attach);
 	acm.setEntry(cfg.ATTACHED_OBJECT_LINK_NAME,"<octomap>",!attach);
 	for(unsigned int i = 0;i < cfg.TOUCH_LINKS.size();i++)
 	{
-		acm.setEntry(cfg.ATTACHED_OBJECT_LINK_NAME,cfg.TOUCH_LINKS[i],false);
+		ROS_INFO_STREAM("set entry for  link: "<<cfg.TOUCH_LINKS[i]);
+		acm.setEntry(cfg.TOUCH_LINKS[i],cfg.ATTACHED_OBJECT_LINK_NAME,true);
 	}
+	
 
 	// create planning scene message
 	moveit_msgs::PlanningScene planning_scene_msg;
 	planning_scene.getPlanningSceneMsg(planning_scene_msg);
 	planning_scene_msg.is_diff = true;
 	planning_scene_msg.world = moveit_msgs::PlanningSceneWorld();
-
 
 	// updating orientation
 	geometry_msgs::Quaternion q = pose.orientation;

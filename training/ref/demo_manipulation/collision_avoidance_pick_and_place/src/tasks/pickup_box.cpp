@@ -43,6 +43,7 @@ void collision_avoidance_pick_and_place::PickAndPlace::pickup_box(std::vector<ge
 	  for(unsigned int i = 0; i < pick_poses.size(); i++)
 	  {
 
+	    ros::Duration(2.0f).sleep();
 	    move_group_interface::MoveGroup::Plan plan;
 	    success = create_motion_plan(pick_poses[i],plan) && move_group_ptr->execute(plan);
 
@@ -58,7 +59,7 @@ void collision_avoidance_pick_and_place::PickAndPlace::pickup_box(std::vector<ge
 	    }
 
 
-	    if(i == 0)
+	    if(i == 1)
 	    {
 		// turn on gripper suction after approach pose
 		/* Fill Code: [ call the 'set_gripper' function to turn on suction ] */
