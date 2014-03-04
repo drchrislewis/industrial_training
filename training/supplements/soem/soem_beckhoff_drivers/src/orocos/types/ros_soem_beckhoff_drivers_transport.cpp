@@ -1,12 +1,12 @@
 
-#include <soem_beckhoff_drivers/PSUMsg.h>
-#include <soem_beckhoff_drivers/DigitalMsg.h>
-#include <soem_beckhoff_drivers/AnalogMsg.h>
-#include <soem_beckhoff_drivers/CommMsg.h>
 #include <soem_beckhoff_drivers/CommMsgBig.h>
-#include <soem_beckhoff_drivers/EncoderMsg.h>
-#include <soem_beckhoff_drivers/EncoderOutMsg.h>
+#include <soem_beckhoff_drivers/AnalogMsg.h>
+#include <soem_beckhoff_drivers/PSUMsg.h>
 #include <soem_beckhoff_drivers/EncoderInMsg.h>
+#include <soem_beckhoff_drivers/CommMsg.h>
+#include <soem_beckhoff_drivers/EncoderOutMsg.h>
+#include <soem_beckhoff_drivers/EncoderMsg.h>
+#include <soem_beckhoff_drivers/DigitalMsg.h>
 
 #include "ros_msg_transporter.hpp"
 #include "RosLib.hpp"
@@ -20,22 +20,22 @@ namespace ros_integration {
     {
       bool registerTransport(std::string name, types::TypeInfo* ti)
       {
-                   if(name == "/soem_beckhoff_drivers/PSUMsg")
-              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::PSUMsg>());
-         if(name == "/soem_beckhoff_drivers/DigitalMsg")
-              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::DigitalMsg>());
+                   if(name == "/soem_beckhoff_drivers/CommMsgBig")
+              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::CommMsgBig>());
          if(name == "/soem_beckhoff_drivers/AnalogMsg")
               return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::AnalogMsg>());
-         if(name == "/soem_beckhoff_drivers/CommMsg")
-              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::CommMsg>());
-         if(name == "/soem_beckhoff_drivers/CommMsgBig")
-              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::CommMsgBig>());
-         if(name == "/soem_beckhoff_drivers/EncoderMsg")
-              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::EncoderMsg>());
-         if(name == "/soem_beckhoff_drivers/EncoderOutMsg")
-              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::EncoderOutMsg>());
+         if(name == "/soem_beckhoff_drivers/PSUMsg")
+              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::PSUMsg>());
          if(name == "/soem_beckhoff_drivers/EncoderInMsg")
               return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::EncoderInMsg>());
+         if(name == "/soem_beckhoff_drivers/CommMsg")
+              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::CommMsg>());
+         if(name == "/soem_beckhoff_drivers/EncoderOutMsg")
+              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::EncoderOutMsg>());
+         if(name == "/soem_beckhoff_drivers/EncoderMsg")
+              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::EncoderMsg>());
+         if(name == "/soem_beckhoff_drivers/DigitalMsg")
+              return ti->addProtocol(ORO_ROS_PROTOCOL_ID,new RosMsgTransporter<soem_beckhoff_drivers::DigitalMsg>());
 
           return false;
       }

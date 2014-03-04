@@ -17,15 +17,12 @@
     <node pkg="robot_io" type="versaball_action_server" name="grasp_action_server" output="screen"/>
     <param name="ball_rigid_channel" value="3"/>
     <param name="ball_flacid_channel" value="1"/>-->
-
-    
     <!-- static frame publisher for simulation -->
     <node pkg="tf" type="static_transform_publisher" name="world_to_tag" args="0.9 -0.1 0.17 0 0 0 world_frame ar_tag 100"/>
 
     <!-- detection node (simulation) -->
     <!--<node pkg="collision_avoidance_pick_and_place" type="simulation_recognition_service.py" name="target_recognition_service"/>-->
     <node pkg="collision_avoidance_pick_and_place" type="simulation_recognition_service.py" name="target_recognition_service"/>
-
   </group>
 
   <!-- hardware-interface nodes -->
@@ -40,9 +37,9 @@
     <include file="$(find sensor_config)/launch/sia20d_sensor_setup.launch"/>
 
     <!-- pick location node -->
-    <!--<include file="$(find collision_avoidance_pick_and_place)/launch/sia20d_pick_location.launch"/>-->
+    <include file="$(find collision_avoidance_pick_and_place)/launch/sia20d_pick_location.launch"/>
     <node pkg="tf" type="static_transform_publisher" name="world_to_tag" args="0.9 -0.1 0.17 0 0 0 world_frame ar_tag 100"/>
-    <node pkg="collision_avoidance_pick_and_place" type="simulation_recognition_service.py" name="target_recognition_service"/>
+    <!--node pkg="collision_avoidance_pick_and_place" type="simulation_recognition_service.py" name="target_recognition_service"/-->
     
   </group>
 

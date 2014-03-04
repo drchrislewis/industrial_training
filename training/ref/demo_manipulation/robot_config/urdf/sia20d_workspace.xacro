@@ -1,16 +1,16 @@
 <?xml version="1.0" ?>
 <robot name="sia20d_workspace" xmlns:xacro="http://ros.org/wiki/xacro">
 	<include filename="$(find motoman_config)/cfg/sia20d_mesh_macro.xacro"/>
-	<include filename="$(find robot_config)/urdf/vacuum_gripper_macro.xacro"/>
+	<include filename="$(find robot_config)/urdf/versaball_macro.xacro"/>
 	<include filename="$(find robot_config)/urdf/workspace_components.xacro"/>
 	<include filename="$(find robot_config)/urdf/kinect_sensor_macro.xacro"/>
 
 	<!-- property list -->
 	<xacro:property name="workcell_height" value="1"/>
 	<xacro:property name="coupler_height" value="0.087"/>
-        <xacro:property name="attached_object_length" value="0.17"/>
-	<xacro:property name="attached_object_width" value="0.17"/>
-	<xacro:property name="attached_object_height" value="0.17"/>
+        <xacro:property name="attached_object_length" value="0.10"/>
+	<xacro:property name="attached_object_width" value="0.10"/>
+	<xacro:property name="attached_object_height" value="0.025"/>
 	<xacro:property name="arm_prefix" value=""/>
 	
 
@@ -21,7 +21,7 @@
 	<link name="roof1">
 		<collision>
 			<geometry>
-				<box size="0.921 2.220 0.04"/>
+				<box size="1.010 2.220 0.04"/>
 			</geometry>
 		</collision>	
 	</link>
@@ -42,7 +42,7 @@
 	<!-- end of sensor definitions -->
 
 	<!-- instantiating arm and gripper -->	
-	<xacro:vacuum_gripper_definition prefix="${arm_prefix}" gripper_adjustment="-0.01"/>
+	<xacro:versaball_definition prefix="${arm_prefix}" gripper_adjustment="-0.01"/>
 	<xacro:sia20d_mesh prefix="${arm_prefix}"/>
 
 	<!-- arm-workcell joint definitions -->
@@ -97,7 +97,7 @@
 	<joint name="${arm_prefix}coupler_to_gripper" type="fixed">
 		<parent link="${arm_prefix}coupler"/>
 		<child link="${arm_prefix}gripper_frame"/>
-		<origin xyz="0 ${coupler_height} 0" rpy="-1.570 3.14 0"/>
+		<origin xyz="0 0 0" rpy="-1.570 3.14 0"/>
 	</joint>
 	<!-- end of arm-gripper coupling joint definitions -->
 

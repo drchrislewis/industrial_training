@@ -25,7 +25,7 @@
   </include>
 
   <include ns="move_group" file="$(find sia20d_collision_avoidance_moveit_config)/launch/sensor_manager.launch" if="$(arg allow_trajectory_execution)">
-    <arg name="moveit_sensor_manager" value="sia20d_workspace" /> 
+    <arg name="moveit_sensor_manager" value="sia20d_collision_avoidance" /> 
   </include>
 
   <node name="move_group" launch-prefix="$(arg launch_prefix)" pkg="moveit_ros_move_group" type="move_group" respawn="false" output="screen" args="$(arg command_args)">
